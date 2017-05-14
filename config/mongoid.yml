@@ -145,3 +145,13 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+production:
+  clients:
+    default:
+      database: crud_test
+      hosts:
+        - mongodb://admin:admin@ds143221.mlab.com:43221
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
