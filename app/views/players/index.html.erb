@@ -1,0 +1,37 @@
+<h1>Jogadores</h1>
+<div class="well">
+  <%= link_to "novo jogador", new_player_path, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Número</th>
+      <th>Posição</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @players.size == 0 %>
+      <tr>
+        <td colspan="6">Cadê os jogadores?</td>
+      </tr>
+    <% else %>
+      <% @players.each do |player| %>
+        <tr>
+          <td><%= player.name %></td>
+          <td><%= player.number %></td>
+          <td><%= player.position %></td>
+          <td>
+            <%= link_to "Editar", edit_player_path(player), class: "btn btn-default" %>&nbsp;
+          </td>
+          <td>
+            <%= button_to "Apagar", player, method: :delete, data: { confirm: "Confirma exclusão #{player.name}?" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
