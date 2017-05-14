@@ -148,9 +148,7 @@ test:
 production:
   clients:
     default:
-      database: crud_test
-      hosts:
-        - mongodb://admin:admin@ds143221.mlab.com:43221
+      uri: mongodb://admin:admin@ds143221.mlab.com:43221/crud_test
       options:
         read:
           mode: :primary
